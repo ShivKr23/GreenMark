@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link rel="stylesheet" href="/stylesheets/marketplace.css">
+    <title><%= username %></title>
+</head>
+<body>
+    <div class="container" x-data="{ rightSide: false, leftSide: false }">
+        <div class="left-side" :class="{'active' : leftSide}">
+         <div class="left-side-button" @click="leftSide = !leftSide">
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+           <line x1="3" y1="12" x2="21" y2="12"></line>
+           <line x1="3" y1="6" x2="21" y2="6"></line>
+           <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+           <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+         </div>
+         <div class="logo">GreenMark</div>
+         <div class="side-wrapper">
+          <div class="side-title">MENU</div>
+          <div class="side-menu">
+           <a href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+             <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+             <path d="M9 22V12h6v10" />
+            </svg>
+            Home
+           </a>
+           <a href="/leaderboard">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+             <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+             <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            Leaderboard
+           </a>
+           <a>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0z"/>
+                <path d="M9 6h6v2H9zm0 3h6v2H9zm0 3h6v2H9zm-6 3h18v2H3z"/>
+              </svg>
+            Projects
+           </a>  
+           <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+             <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+             <path d="M16 2v4M8 2v4M3 10h18" />
+            </svg>
+            Settings
+           </a>
+           <a href="/profile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+             <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+             <path d="M16 2v4M8 2v4M3 10h18" />
+            </svg>
+            Profile
+           </a>
+          </div>
+         </div>
+
+
+        </div>
+        <div class="main">
+         <div class="search-bar">
+          <input type="text" placeholder="Search" />
+          <button class="right-side-button" @click="rightSide = !rightSide">
+           <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+           </svg>
+          </button>
+         </div>
+         <div id="mainContainer" class="marketplace-container">
+            <!-- Profile picture -->
+          <div class="profile">
+           <!-- <div class="profile-avatar">
+            <img src="/images/profilePlaceholder.png" alt="" class="profile-img">
+            <div class="profile-name"><%= username %></div>
+           </div> -->
+           <!-- Cover Picture -->
+           <img src="/images/marketplaceCover.png" alt="" class="profile-cover">
+           <!-- navbar links -->
+           <!-- <div class="profile-menu">
+            <a class="profile-menu-link active">Timeline</a>
+            <a class="profile-menu-link">About</a>
+            <a class="profile-menu-link">Friends</a>
+            <a class="profile-menu-link">Photos</a>
+            <a class="profile-menu-link">More</a>
+           </div> -->
+          </div>
+          <div class="">
+        
+            <!-- #region project cards -->
+           <div id="postContainer" class="market-flex" >
+            <div class="projectCards"><div class='container'>
+                <section class='card'>
+                  <div class='card_inner'>
+                    <div class='card_inner__circle'>
+                      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/rocket.png'>
+                    </div>
+                    <div class='card_inner__header'>
+                      <img src='http://www.pixeden.com/media/k2/galleries/343/002-city-vector-background-town-vol2.jpg'>
+                    </div>
+                    <div class='card_inner__content'>
+                      <div class='title'>Company 1</div>
+                      <div class='price'>$12.75k</div>
+                      <div class='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. <br/> <br/>Fusce sed tortor in orci ultrices tempor quis ut leo. Fusce imperdiet eget ante eu faucibus. Nam rhoncus sapien</div>
+                    </div>
+                    <div class='card_inner__cta'>
+                      <button id="donateBtn">
+                        <span>View Project</span>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+                <section class='card'>
+                  <div class='card_inner'>
+                    <div class='card_inner__circle'>
+                      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/rocket.png'>
+                    </div>
+                    <div class='card_inner__header'>
+                      <img src='http://www.pixeden.com/media/k2/galleries/343/002-city-vector-background-town-vol2.jpg'>
+                    </div>
+                    <div class='card_inner__content'>
+                      <div class='title'>Company 2</div>
+                      <div class='price'>$50k</div>
+                      <div class='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. <br/> <br/>Fusce sed tortor in orci ultrices tempor quis ut leo. Fusce imperdiet eget ante eu faucibus. Nam rhoncus sapien</div>
+                    </div>
+                    <div class='card_inner__cta'>
+                      <button>
+                        <span>View Project</span>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+
+                <section class='card'>
+                  <div class='card_inner'>
+                    <div class='card_inner__circle'>
+                      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/rocket.png'>
+                    </div>
+                    <div class='card_inner__header'>
+                      <img src='http://www.pixeden.com/media/k2/galleries/343/002-city-vector-background-town-vol2.jpg'>
+                    </div>
+                    <div class='card_inner__content'>
+                      <div class='title'>Company 3</div>
+                      <div class='price'>$22.45k</div>
+                      <div class='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. <br/> <br/>Fusce sed tortor in orci ultrices tempor quis ut leo. Fusce imperdiet eget ante eu faucibus. Nam rhoncus sapien</div>
+                    </div>
+                    <div class='card_inner__cta'>
+                      <button>
+                        <span>View Project</span>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+
+                <section class='card'>
+                  <div class='card_inner'>
+                    <div class='card_inner__circle'>
+                      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/rocket.png'>
+                    </div>
+                    <div class='card_inner__header'>
+                      <img src='http://www.pixeden.com/media/k2/galleries/343/002-city-vector-background-town-vol2.jpg'>
+                    </div>
+                    <div class='card_inner__content'>
+                      <div class='title'>Company 4</div>
+                      <div class='price'>$100k</div>
+                      <div class='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. <br/> <br/>Fusce sed tortor in orci ultrices tempor quis ut leo. Fusce imperdiet eget ante eu faucibus. Nam rhoncus sapien</div>
+                    </div>
+                    <div class='card_inner__cta'>
+                      <button>
+                        <span>View Project</span>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+
+                <section class='card'>
+                  <div class='card_inner'>
+                    <div class='card_inner__circle'>
+                      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/rocket.png'>
+                    </div>
+                    <div class='card_inner__header'>
+                      <img src='http://www.pixeden.com/media/k2/galleries/343/002-city-vector-background-town-vol2.jpg'>
+                    </div>
+                    <div class='card_inner__content'>
+                      <div class='title'>Company 5</div>
+                      <div class='price'>$20k</div>
+                      <div class='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. <br/> <br/>Fusce sed tortor in orci ultrices tempor quis ut leo. Fusce imperdiet eget ante eu faucibus. Nam rhoncus sapien</div>
+                    </div>
+                    <div class='card_inner__cta'>
+                      <button>
+                        <span>View Project</span>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+
+                <section class='card'>
+                  <div class='card_inner'>
+                    <div class='card_inner__circle'>
+                      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/rocket.png'>
+                    </div>
+                    <div class='card_inner__header'>
+                      <img src='http://www.pixeden.com/media/k2/galleries/343/002-city-vector-background-town-vol2.jpg'>
+                    </div>
+                    <div class='card_inner__content'>
+                      <div class='title'>Company 6</div>
+                      <div class='price'>$45k</div>
+                      <div class='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. <br/> <br/>Fusce sed tortor in orci ultrices tempor quis ut leo. Fusce imperdiet eget ante eu faucibus. Nam rhoncus sapien</div>
+                    </div>
+                    <div class='card_inner__cta'>
+                      <button>
+                        <span>View Project</span>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+
+                <section class='card'>
+                  <div class='card_inner'>
+                    <div class='card_inner__circle'>
+                      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/rocket.png'>
+                    </div>
+                    <div class='card_inner__header'>
+                      <img src='http://www.pixeden.com/media/k2/galleries/343/002-city-vector-background-town-vol2.jpg'>
+                    </div>
+                    <div class='card_inner__content'>
+                      <div class='title'>Company 7</div>
+                      <div class='price'>$5k</div>
+                      <div class='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. <br/> <br/>Fusce sed tortor in orci ultrices tempor quis ut leo. Fusce imperdiet eget ante eu faucibus. Nam rhoncus sapien</div>
+                    </div>
+                    <div class='card_inner__cta'>
+                      <button>
+                        <span>View Project</span>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+
+                <section class='card'>
+                  <div class='card_inner'>
+                    <div class='card_inner__circle'>
+                      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/rocket.png'>
+                    </div>
+                    <div class='card_inner__header'>
+                      <img src='http://www.pixeden.com/media/k2/galleries/343/002-city-vector-background-town-vol2.jpg'>
+                    </div>
+                    <div class='card_inner__content'>
+                      <div class='title'>Company 8</div>
+                      <div class='price'>$10k</div>
+                      <div class='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. <br/> <br/>Fusce sed tortor in orci ultrices tempor quis ut leo. Fusce imperdiet eget ante eu faucibus. Nam rhoncus sapien</div>
+                    </div>
+                    <div class='card_inner__cta'>
+                      <button>
+                        <span>View Project</span>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+
+                <section class='card'>
+                  <div class='card_inner'>
+                    <div class='card_inner__circle'>
+                      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/rocket.png'>
+                    </div>
+                    <div class='card_inner__header'>
+                      <img src='http://www.pixeden.com/media/k2/galleries/343/002-city-vector-background-town-vol2.jpg'>
+                    </div>
+                    <div class='card_inner__content'>
+                      <div class='title'>Company 9</div>
+                      <div class='price'>$22k</div>
+                      <div class='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. <br/> <br/>Fusce sed tortor in orci ultrices tempor quis ut leo. Fusce imperdiet eget ante eu faucibus. Nam rhoncus sapien</div>
+                    </div>
+                    <div class='card_inner__cta'>
+                      <button>
+                        <span>View Project</span>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+
+                <section class='card'>
+                  <div class='card_inner'>
+                    <div class='card_inner__circle'>
+                      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/rocket.png'>
+                    </div>
+                    <div class='card_inner__header'>
+                      <img src='http://www.pixeden.com/media/k2/galleries/343/002-city-vector-background-town-vol2.jpg'>
+                    </div>
+                    <div class='card_inner__content'>
+                      <div class='title'>Company 10</div>
+                      <div class='price'>$32.45k</div>
+                      <div class='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at posuere eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. <br/> <br/>Fusce sed tortor in orci ultrices tempor quis ut leo. Fusce imperdiet eget ante eu faucibus. Nam rhoncus sapien</div>
+                    </div>
+                    <div class='card_inner__cta'>
+                      <button>
+                        <span>View Project</span>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              <!-- #endregion -->
+          </div>
+         </div>
+        </div>
+        
+       <script type="module" src="/javascripts/home.js"></script>
+       <script type="module" src="/javascripts/loggedProfile/loggedProfile.js"></script>
+       <script type="module" src="/javascripts/marketplace.js"></script>
+</body>
+</html>
